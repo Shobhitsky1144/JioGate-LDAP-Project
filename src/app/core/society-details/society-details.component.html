@@ -1,0 +1,102 @@
+<div class="">
+    <div class="flex" style="align-items: center;">
+        <h2 class="px-4 py-2">Society Details</h2>
+        <span class="p-input-icon-left ml-auto">
+            <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+            <i class="pi pi-search"></i>
+        </span>
+    </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="title">
+        <h2>Details</h2>
+      </div>
+    </div>
+    <div class="card-body">
+        <div class="table-wrapper">
+            <div class="adjustDd">
+                <span style="margin-top: 10px;">{{totalRecords}} results found.</span>
+                <span class="setRight">
+                    View
+                    <p-dropdown [options]="filterDropDown" name="type"  (onChange)="limitChange($event)" optionLabel="limit" [style]="{minWidth: '80px'}" placeholder="10" ></p-dropdown>
+                    items per page
+                </span>
+            </div>
+            <p-table #dt [globalFilterFields]="['Amenity Name','amenityname']" [columns]="column"  [value]="tableData"  [paginator]="true" [rows]="setLimit" [totalRecords]="totalRecords" [autoLayout]="true" >
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{col.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-data let-rowIndex="rowIndex">
+                    <tr>
+                        <td>{{rowIndex + 1}}</td>
+                        <td>{{data.amenityname}}</td>
+                        <td>
+                           {{data.dateofregistration}}
+                        </td>
+                        <td>
+                            {{data.citystate}}
+                        </td>
+                        <td>{{data.pincode}}</td>
+                        <td>{{data.totalunits}}</td>
+                        <td>
+                            <div class="iconstyle">
+                            <img src="../../../../assets/icons/download_excel.png" title="Download in excel" (click)="showReportPeriod()"/>
+                            <img src="../../../../assets/icons/access_admin_portal.png" title="Access admin portal"/>
+                            <img src="../../../../assets/icons/society_detilas.png" title="Society details" (click)="showSpecificSocietyinfo()"/>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td  [attr.colspan]="columns.length">
+                            No records found
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+  </div>
+  <br />
+</div>
+
+<p-dialog header="Select option for the period " [modal]="true"  [(visible)]="visible"  [resizable]="false" [style]="{width: '50vw'}">
+    <div class="flex flex-row justify-content-around">
+        <div *ngFor="let periods of period" class="field-checkbox">
+            <p-radioButton [inputId]="periods.key" name="category" [value]="periods" [(ngModel)]="selectedPeriod"></p-radioButton>
+            <label [for]="periods.key" class="ml-2">{{ periods.name }}</label>
+        </div>
+    </div>
+    <div  class="flex flex-row justify-content-around" style="margin: 30px;" [ngSwitch]="selectedPeriod.key">
+        <div class="flex d-flex flex-column"  *ngSwitchCase="'byDate'">
+            <label class="label-class">Start Date<p-calendar class="cal-style" placeholder="Start Date" appendTo="body" [(ngModel)]="startDateselected"></p-calendar></label>
+            <br>
+            <label class="label-class">End Date<p-calendar class="cal-style"  placeholder="End Date" appendTo="body"  [(ngModel)]="endDateselected"></p-calendar></label>
+        </div>
+        <div class="flex d-flex flex-column" *ngSwitchCase="'byMonth'">
+            <label>Year and Month<p-calendar style="margin: 10px;" view="month" dateFormat="mm/yy" placeholder="Select mm/yy" appendTo="body" [(ngModel)]="startDateselected"></p-calendar></label>
+        </div>
+        <div *ngSwitchCase="'last6month'"><h4>This will download report of last 6 months</h4></div>
+        <div *ngSwitchCase="'financialyear'">
+            <p-dropdown [style]="{'width':'150px'}" appendTo="body" [options]="financialYearList" [(ngModel)]="selectedFinancialYear" placeholder="Select Year" [showClear]="true">
+            <ng-template pTemplate="selectedItem" >
+                    <div>{{selectedFinancialYear.year}}</div>
+            </ng-template>
+            <ng-template let-options pTemplate="item">
+                <div>{{options.year}}</div>
+            </ng-template></p-dropdown>
+        </div>
+        <div *ngSwitchDefault><h4>Select any period to download detail report</h4></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div  class="flex flex-row justify-content-around">
+        <button type="submit" class="btn btn-primary">Download</button>
+    </div>
+</p-dialog>

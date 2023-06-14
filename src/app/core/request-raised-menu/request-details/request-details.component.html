@@ -1,0 +1,193 @@
+<div class="request_details_wrapper">
+  <div>
+    <h2 class="px-2 py-2">Requests Raised</h2>
+  </div>
+
+  <div class="card">
+    <div class="grid card-header">
+      <div class="col-11">
+        <h2>Details</h2>
+      </div>
+      <div class="col-1 flex justify-content-end">
+        <div class="tooltip">
+          <img
+            src="../../../assets/icons/tooltipIcon.svg"
+            alt="tooltipIcon"
+            height="20"
+            width="20"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12"><p-divider layout="horizontal"></p-divider></div>
+
+    <div class="grid card-body">
+      <div class="col-12 sm:col-6 md:col-5 lg:col-3">
+        <h5>Society Name</h5>
+        <p class="line-height-4 light-gray">Little Mountain Society</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-3 lg:col-2">
+        <h5>Raised By</h5>
+        <p class="line-height-4 light-gray">Tom Cruise</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-3 lg:col-2">
+        <h5>Raised on</h5>
+        <p class="line-height-4 light-gray">May 10 , 2018</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-5 lg:col-2">
+        <h5>Status</h5>
+        <!-- <img
+                    [src]="
+                      item.Status == 'Pending'
+                        ? '../../../../assets/icons/pendingIcon.svg'
+                        : item.Status == 'Closed'
+                        ? '../../../../assets/icons/closedIcon.svg'
+                        : '../../../../assets/icons/progressIcon.svg'
+                    "
+                    class="mx-2"
+                    alt="{{ item.Status }}"
+                  /> -->
+        <div class="flex align-items-center">
+          <img
+            src="../../../../assets/icons/pendingIcon.svg"
+            class="mx-2"
+            alt="icon"
+          />
+          <p class="line-height-4 light-gray">Pending</p>
+        </div>
+      </div>
+
+      <div class="col-12 sm:col-6 md:col-6 lg:col-3">
+        <div class="">
+          <span class="p-float-label">
+            <p-dropdown
+              [options]="status"
+              (ngModelChange)="onDropdownChange($event)"
+              [(ngModel)]="selectedStatus"
+              optionLabel="name"
+              placeholder="Change Status"
+            >
+              <ng-template pTemplate="selectedItem">
+                <div class="flex align-items-center" *ngIf="selectedStatus">
+                  <img
+                    [src]="
+                      selectedStatus.name == 'Pending'
+                        ? '../../../../assets/icons/pendingIcon.svg'
+                        : selectedStatus.name == 'Closed'
+                        ? '../../../../assets/icons/closedIcon.svg'
+                        : '../../../../assets/icons/progressIcon.svg'
+                    "
+                    class="mx-2"
+                    alt="{{ selectedStatus.name }}"
+                  />
+
+                  <div>{{ selectedStatus.name }}</div>
+                </div>
+              </ng-template>
+              <ng-template let-status pTemplate="item">
+                <div class="flex align-items-center">
+                  <img
+                    [src]="
+                      status.name == 'Pending'
+                        ? '../../../../assets/icons/pendingIcon.svg'
+                        : status.name == 'Closed'
+                        ? '../../../../assets/icons/closedIcon.svg'
+                        : '../../../../assets/icons/progressIcon.svg'
+                    "
+                    class="mx-2"
+                    alt="{{ status.name }}"
+                  />
+
+                  <div>{{ status.name }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+            <label for="float-label">Change Status</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 sm:col-6 md:col-5 lg:col-3">
+        <h5>Attended By</h5>
+        <p class="line-height-4 light-gray">none</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-3 lg:col-2">
+        <h5>Request Type</h5>
+        <p class="line-height-4 light-gray">Issue Request</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-3 lg:col-2">
+        <h5>Requestor Mobile No.</h5>
+        <p class="line-height-4 light-gray">8468214964</p>
+      </div>
+      <div class="col-12 sm:col-6 md:col-3 lg:col-2">
+        <h5>Email Id</h5>
+        <p class="line-height-4 light-gray">abcxyz@gmail.com</p>
+      </div>
+      <div class="md:col-12 lg:col-12">
+        <textarea
+          name=""
+          id=""
+          cols="100"
+          rows="10"
+          class="w-full p-2"
+          placeholder="Body..."
+        ></textarea>
+        <div class="attachment py-4 flex align-items-center">
+          <h4 class="light-gray">Attachment :</h4>
+          <a href="#" class="px-2" style="color: #355cf8">sample.pdf​</a>
+        </div>
+        <p-divider layout="horizontal"></p-divider>
+        <div class="grid add-note">
+          <div class="col-2 sm:col-2 md:col-2 lg:col-1 text-right">
+            <img
+              src="../../../../assets/icons//user.svg"
+              width="40"
+              height="40"
+            />
+          </div>
+          <div class="col-12 sm:col-10 md:col-10 lg:col-11">
+            <div class="first-add-section">
+              <h5 class="py-3">Tom Cruise*</h5>
+              <textarea
+                name=""
+                id=""
+                cols=""
+                rows="4"
+                class="p-2 w-full lg:w-11"
+                placeholder="click to add note"
+              ></textarea>
+              <div class="text-left lg:text-right pr-5 py-3">
+                <button class="yellow-btn">Submit</button>
+                <p-divider layout="horizontal"></p-divider>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid second-add-section w-full">
+        <div
+          class="col-12 sm:col-2 md:col-1 col-offset-1 lg:col-1 col-offset-1"
+        >
+          <img
+            src="../../../../assets/icons//user.svg"
+            width="40"
+            height="40"
+          />
+        </div>
+        <div class="col-12 sm:col-9 md:col-10 lg:col-10">
+          <h5 class="py-3">Tom Cruise*</h5>
+          <textarea
+            name=""
+            id=""
+            cols=""
+            rows="4"
+            class="w-full p-2"
+            placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+          ></textarea>
+          <div class="text-right pr-5 py-3">
+            <p class="light-gray text-sm">2 Weeks ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

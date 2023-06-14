@@ -1,0 +1,65 @@
+@import "../../../assets//scss/variables";
+::ng-deep .p-panelmenu .p-panelmenu-header > a {
+  border: none;
+  border-bottom: 1px solid $border-color;
+  color: $white;
+  background: $primary-color;
+  font-weight: normal;
+}
+::ng-deep .p-menuitem-link-active {
+  background: $blue !important ;
+}
+::ng-deep .p-panelmenu .p-panelmenu-header > a:focus {
+  box-shadow: none;
+}
+::ng-deep
+  .p-panelmenu
+  .p-panelmenu-header:not(.p-highlight):not(.p-disabled)
+  > a:hover {
+  background: $primary-color;
+  color: $white;
+}
+::ng-deep .overviewIcon {
+  background-image: url("../../../assets/icons/overviewIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+
+::ng-deep .societyDetailsIcon {
+  background-image: url("../../../assets/icons/societyDetailsIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+::ng-deep .requestedRaisedIcon {
+  background-image: url("../../../assets/icons/requestedRaisedIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+::ng-deep .activitiesLogIcon {
+  background-image: url("../../../assets/icons/activitiesLogIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+::ng-deep .settingIcon {
+  background-image: url("../../../assets/icons/settingIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+::ng-deep .logoutIcon {
+  background-image: url("../../../assets/icons/logoutIcon.svg");
+  width: 16px;
+  height: 16px;
+}
+.sidebar {
+  /* height: 100%; */
+  /* background: red; */
+  /* width: 100%; */
+  // height: 100vh;
+  position: sticky;
+  top: 88px;
+  /* bottom: 0; */
+  // background: #f92647;
+  /* background-color: red; */
+  /* width: 200px; */
+  /* overflow-y: auto; */
+}

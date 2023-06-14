@@ -1,0 +1,45 @@
+@mixin my-card($color) {
+  border-radius: 15px;
+  background-color: $color;
+  padding: 1rem;
+}
+@mixin my-box($lr: 1rem, $tb: 2rem) {
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // padding: $tb $lr;
+  margin: 0.5rem 0rem;
+}
+
+// Extra small devices (portrait phones)
+@mixin small {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+// Small devices (landscape phones)
+@mixin mobile {
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    @content;
+  }
+}
+
+// Medium devices (tablets)
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    @content;
+  }
+}
+// Large devices (desktops)
+@mixin desktop {
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    @content;
+  }
+}
+// Extra large devices (large desktops)
+@mixin large-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

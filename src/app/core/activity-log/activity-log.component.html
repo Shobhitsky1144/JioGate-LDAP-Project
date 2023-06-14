@@ -1,0 +1,75 @@
+<section>
+  <h2 class="px-2 py-2">Activities Log</h2>
+  <div class="table-wrapper bg-white p-4 border-round-2xl">
+    <div class="table-header mb-3">
+      <div class="flex align-items-center justify-content-end">
+        <div class="pr-2">
+          <p class="light-gray">User</p>
+        </div>
+        <div class="">
+          <p-dropdown
+            [options]="cities"
+            [(ngModel)]="selectedCity"
+            optionLabel="name"
+          ></p-dropdown>
+          <i class="pi pi-filter text-xl pl-3"> </i>
+        </div>
+      </div>
+    </div>
+    <app-table
+      [columns]="[
+        { field: 'name', header: 'Date & Time' },
+        { field: 'age', header: 'User name' },
+        { field: 'email', header: 'Change Log' }
+      ]"
+      [data]="[
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'May 26, 2019 12:15',
+          age: 30,
+          email: 'Download EXCEL of xyz society from society details'
+        },
+        {
+          name: 'Jane Smith',
+          age: 25,
+          email: 'Changed STATUS of Demo of xyz society from PENDING to CLOSED'
+        },
+        {
+          name: 'Bob Johnson',
+          age: 40,
+          email: 'Accessed ADMIN PORTAL of xyz society'
+        }
+      ]"
+      type="activity-log"
+    ></app-table>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+<p-table [columns]="columns" [value]="data" [paginator]="true" [rows]="7">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let column of columns">{{ column.header }}</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr [ngSwitch]="type">
+      <ng-template [ngSwitchCase]="'activity-log'">
+        <td *ngFor="let column of columns">{{ item[column.field] }}</td>
+      </ng-template>
+      <ng-template [ngSwitchCase]="'request-raised'">
+        <td>{{ item.Sr }}</td>
+        <td>
+          {{ item.Request }} <br />
+          <span class="text-xs gray-second">Updated 1 day ago</span>
+        </td>
+        <td>
+          {{ item.Raised }}
+          <br />
+          <span class="text-xs gray-second">dhasbdha@gmail.com</span>
+        </td>
+        <td>
+          {{ item.Date }}<br />
+          <span class="text-xs gray-second">6:30 PM</span>
+        </td>
+        <td>{{ item.Society }}</td>
+        <td>
+          <!-- <div *ngIf="item.status == 'In-Progress'">
+            <img src="../../../../assets/icons/progressIcon.svg" class="mx-2" />
+          </div>
+          <div *ngIf="item.status == 'Pending'">
+            <img src="../../../../assets/icons/pendingIcon.svg" class="mx-2" />
+          </div> -->
+          <!-- <div> -->
+          <img
+            [src]="
+              item.Status == 'Pending'
+                ? '../../../../assets/icons/pendingIcon.svg'
+                : item.Status == 'Closed'
+                ? '../../../../assets/icons/closedIcon.svg'
+                : '../../../../assets/icons/progressIcon.svg'
+            "
+            class="mx-2"
+            alt="{{ item.Status }}"
+          />
+
+          {{ item.Status }}
+        </td>
+
+        <td>
+          <a routerLink="/requestRaisedDetails" class="bg-blue">{{
+            item.Details
+          }}</a
+          ><br />
+          <div class="changeStatus pt-1">
+            <p-dropdown
+              [options]="statusList"
+              [(ngModel)]="selectedStatus"
+              optionLabel="name"
+              [showClear]="true"
+              placeholder="Change Status"
+            >
+              <ng-template pTemplate="selectedItem">
+                <div class="flex align-items-center" *ngIf="selectedStatus">
+                  <img
+                    [src]="
+                      item.Status == 'Pending'
+                        ? '../../../../assets/icons/pendingIcon.svg'
+                        : item.Status == 'Closed'
+                        ? '../../../../assets/icons/closedIcon.svg'
+                        : '../../../../assets/icons/progressIcon.svg'
+                    "
+                    class="mx-2"
+                    alt="{{ item.Status }}"
+                  />
+
+                  <div>{{ selectedStatus.name }}</div>
+                </div>
+              </ng-template>
+              <ng-template let-status pTemplate="item">
+                <div class="flex align-items-center">
+                  <img
+                    [src]="
+                      status.name == 'Pending'
+                        ? '../../../../assets/icons/pendingIcon.svg'
+                        : status.name == 'Closed'
+                        ? '../../../../assets/icons/closedIcon.svg'
+                        : '../../../../assets/icons/progressIcon.svg'
+                    "
+                    class="mx-2"
+                    alt="{{ status.name }}"
+                  />
+
+                  <div>{{ status.name }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+          </div>
+        </td>
+      </ng-template>
+    </tr>
+  </ng-template>
+</p-table>

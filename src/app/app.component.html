@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <app-header *ngIf="isLoggedIn"></app-header>
+  <main class="app-body">
+    <div class="grid">
+      <div
+        *ngIf="isLoggedIn"
+        class="col-4 sm:col-3 md:col-3 lg:col-2 bck-primary"
+        style="padding-right: unset"
+      >
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-8 sm:col-9 md:col-9 lg:col-10">
+        <div class="app-body-content"><router-outlet></router-outlet></div>
+      </div>
+    </div>
+  </main>
+</div>

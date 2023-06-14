@@ -1,0 +1,20 @@
+span{
+    font-family:'primeicons' !important
+}
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    background-color: #D0E0E8;
+    border-radius: 10px;
+}
+.dot {
+    height: 10px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .label-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }

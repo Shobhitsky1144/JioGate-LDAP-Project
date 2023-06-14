@@ -1,0 +1,72 @@
+<section>
+  <div class="grid">
+    <div class="col-12 sm:col-12 md:col-4 lg:col-4">
+      <h2 class="px-2 py-2 md:text-lg">Requests Raised</h2>
+    </div>
+    <div class="col-12 sm:col-12 md:col-8 sm:col-8">
+      <div
+        class="flex sm:justify-content-start lg:justify-content-end align-items-center"
+      >
+        <span class="p-input-icon-right">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            placeholder="Search for Society"
+            pInputText
+            [(ngModel)]="value"
+          />
+        </span>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="table-wrapper bg-white p-4 border-round-2xl">
+        <div class="grid table-header my-1">
+          <div class="col-12 sm:col-12 md:col-12 lg:col-5">
+            <h2 class="md:text-lg">Issues</h2>
+          </div>
+          <div class="col-12 sm:col-12 md:col-12 lg:col-7">
+            <div
+              class="flex align-items-center lg:justify-content-end flex-wrap"
+            >
+              <div class="flex align-items-center lg:justify-content-end">
+                <p class="pr-2 light-gray">Request Type</p>
+
+                <p-dropdown
+                  optionLabel="name"
+                  [options]="cities"
+                  [(ngModel)]="selectedCity"
+                ></p-dropdown>
+              </div>
+
+              <div class="lg:pl-3 sm:pl-3 md:pl-3 py-2">
+                <div class="flex align-items-center">
+                  <p class="pr-2 light-gray">Status</p>
+
+                  <p-dropdown
+                    optionLabel="name"
+                    [options]="cities"
+                    [(ngModel)]="selectedCity"
+                  ></p-dropdown>
+                </div>
+              </div>
+              <div class="pl-3">
+                <i class="pi pi-filter text-xl lg:text-right"> </i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p class="light-gray">21 results founds.</p>
+          </div>
+        </div>
+
+        <app-table
+          [columns]="columns"
+          [data]="data"
+          type="request-raised"
+        ></app-table>
+      </div>
+    </div>
+  </div>
+</section>

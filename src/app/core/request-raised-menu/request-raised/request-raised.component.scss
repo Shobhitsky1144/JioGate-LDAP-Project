@@ -1,0 +1,16 @@
+input {
+  border-radius: 6px;
+  border: none;
+  height: 36px;
+  width: 100%;
+  width: 16rem;
+  padding: 0rem 1rem;
+}
+input::placeholder {
+  color: #404040;
+  opacity: 0.5;
+}
+.pi-search {
+  color: #000000;
+  opacity: 0.25;
+}

@@ -1,0 +1,20 @@
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      label="Confirm"
+      class="mr-4"
+      style="background-color: #28a745"
+      (click)="cd.accept()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      label="Cancel"
+      style="background-color: #868383"
+      (click)="cd.reject()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>
+<!-- <p-button (click)="confirm1()" icon="pi pi-check" label="Confirm"></p-button> -->

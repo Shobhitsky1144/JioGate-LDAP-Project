@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/variables";
+@import "./assets/scss/base";
+@import "./assets/scss/components/cards";
+@import "./assets/scss/mixin";
+@import "./assets/scss/components/buttons";
+@import "~primeicons/primeicons.css";
+
+main > div {
+  height: 100vh;
+}
+.text_gray {
+  color: $light-gray;
+}
+
+.bck-primary {
+  background-color: $primary-color !important;
+}
+textarea {
+  border-radius: 6px;
+}
+th {
+  background: $white !important;
+  font-size: 14px;
+}
+td {
+  color: $light-gray;
+  font-size: 14px;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  padding: 0.429rem 0.3rem !important;
+}
+
+.link {
+  color: $blue;
+  cursor: pointer;
+}
+.bg-blue {
+  color: $blue;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.light-gray {
+  color: $light-gray;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background-color: $gray !important;
+  color: $light-gray !important;
+}
+input {
+  outline: none;
+}
+.gray-second {
+  color: $gray-second;
+}

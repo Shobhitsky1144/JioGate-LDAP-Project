@@ -1,0 +1,30 @@
+<div class="outer-container">
+    <div class="login-container">
+        <img class="login-logo" src="../../../../assets/icons/JioGate_resi_01.png"/>
+        <div class="titleLogo">JioGate</div>
+        <div  class="input-container">
+            <label  class="loginTitle">LDAP Dashboard login</label>
+            <br>
+            <br>
+            <div class="form-group" >
+                <label class="label">EMAIL</label>
+                <input  [(ngModel)]="email" pInputText pKeyFilter="Integers" type="text" placeholder="xyz@gmail.com">         
+            </div>
+            <div class="form-group">
+                <label class="label">PASSWORD</label>
+                <input [type]="showPassword ? 'text' : 'Password'"  pInputPassword [(ngModel)]="password" [placeholder] ="showPassword ? 'Qwerty@123' : '*******' "  autocomplete="new-password" class="form-control"/>
+                <i class="pi eyeIcon" [ngClass]="showPassword ? 'pi-eye' : 'pi-eye-slash'" (click)="showPassword=!showPassword;" placeholder="Password"></i>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary submitBtn" [disabled]="( email && password )" (click)="submit()" >Login</button>
+            </div>
+            <h5  class="btn-link"><i>Forgot Password?</i></h5>
+              <!-- <button class="btn btn-link">Forgot Password?</button> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+

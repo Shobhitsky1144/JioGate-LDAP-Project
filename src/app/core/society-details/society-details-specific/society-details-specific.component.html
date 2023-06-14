@@ -1,0 +1,116 @@
+<div>
+    <h2 class="px-4 py-2">Society Details</h2>
+    <div class="card">
+        <div class="card-header">
+            <div  class="flex d-flex align-items-center"  (click)="showSpecificSocietyinfo()">
+                <span class="pi-angle-left" style="font-size: 1.5rem"></span>
+                <h3>Back</h3>
+            </div>
+            <div class="tooltip">
+              <img
+                src="../../../assets/icons/tooltipIcon.svg"
+                alt="tooltipIcon"
+                height="20"
+                width="20"
+              />
+            </div>
+        </div>
+        <p-divider layout="horizontal"></p-divider>
+        <div class="card-body">
+            <div class="row">
+                <div *ngFor="let society of soceityData" class="col-3">
+                    <h4>{{society.field}}</h4>
+                    <br>
+                    <div *ngIf="society.field != 'Contact Details'">
+                        <p>
+                            {{society.value}}
+                        </p>
+                    </div>
+                    <div *ngIf="society.field == 'Contact Details'" style="overflow:auto; height: 100px; width: 400px;">
+                      <div *ngFor="let contact of society.value" class="card flex" style="height: 0px;">
+                        <p>{{contact.name}}</p>
+                        <p-divider layout="vertical"></p-divider>
+                        <p>{{contact.contactno}} </p>
+                        <p-divider layout="vertical"></p-divider>
+                        <p>{{contact.email}}</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <p-divider layout="horizontal"></p-divider>
+        <div class="row" >
+            <div *ngFor="let datas of soceityFlatInfo"  class="col-3">
+                <div *ngIf="!(datas.id == 5 || datas.id == 6) " class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="card">
+                                <div class="card-horizontal">
+                                    <div class="h-25 d-inline-block" style="align-items: center; background-color: #F0F4F6; padding: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; height: 150px;width: 120px;">
+                                        <h1 style="font-size: 40px;">240</h1>
+                                        <p style="font-weight: bold;">Total Flats</p>
+                                        <div class="flex d-flex flex-column" style="width: 50px;padding: 3px;">
+                                            <div class="flex d-flex align-items-start"><span class="dot" [ngStyle]="{'background-color':'#DAFF33' }"></span>
+                                            <small style="font-size: 0.6rem;font-weight: lighters;">Active Guards</small></div>
+                                            <div class="flex d-flex align-items-start"><span class="dot" [ngStyle]="{'background-color':'#336EFF' }"></span>
+                                            <small style="font-size: 0.6rem;font-weight: lighters;">In-Active Guards</small></div>
+                                        </div>
+                                        </div>
+                                           <div style="display: flex; align-items: center;padding: 10px;">
+                                        <p-chart width="100px" height="100px" type="doughnut" [data]="data"></p-chart></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="(datas.id == 5 || datas.id == 6)">
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="card">
+                                <div class="card-horizontal">
+                                    <div class="card-body" style="background-color: #F0F4F6; padding: 10px; border-radius: 10px;">
+                                        <h4 class="card-title">Total Registered service providers</h4>
+                                        <div class="flex d-flex justify-content-around" style="margin: 10px;">
+                                        <img src="../../../../assets/icons/{{datas.imgsrc}}"/>
+                                        <h1 style="font-size: 40px;">540</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+            <div *ngFor="let datas of overallEntries"  class="col-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <div class="card" style="display: flex;">
+                                <div class="card-horizontal" style="padding: 10px; background-color: #F0F4F6; border-radius: 10px;">
+                                    <div class="h-25 d-inline-block" style="align-items: center;">
+                                        <p class="card-title" style="font-weight: bold;">{{datas.title}}</p>
+                                        <h1>240</h1>
+                                        <small class="text-muted" style="color: #B2B2B2;">Previous day upto 12:00 am</small>
+                                    </div>
+                                    <p-divider layout="vertical"></p-divider>
+                                    <div class="img-square-wrapper" style="display: flex; align-items: center;">
+                                        <img src="../../../../assets/icons/{{datas.imgsrc}}"  height="40px"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
