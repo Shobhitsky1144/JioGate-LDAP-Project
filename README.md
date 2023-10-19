@@ -1,27 +1,25 @@
-# JioldapAdminportal
+ Project : JIOGate LDAP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0
+Role: Frontend developer
 
-## Development server
+Technical Environment :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+React.js,Redux,Typescript,Angular,Primeng,Primeflex,Tailwind.
 
-## Code scaffolding
+Description :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+JioGate is a mobile based end-to-end society management solution
+that enhance the safety of gated community. This Involves management of gated society in a simplified way
+including residence, parking, guards management. Jiogate LDAP is admin portal that manage society ,residents.
+created angular based admin portal for jiogate.
+In Jio gates admin portal, we can manage the residence and
+guard management for enhance the safety
 
-## Build
+Responsibilities:
+• created angular based admin portal for jiogate.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+• In Jio gates admin portal, we can manage the residence and guard management for enhance the safety.
 
-## Running unit tests
+• Collaborating with backend developers to integrate frontend with backend systems
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Skills: React.js · JavaScript · HTML5 · SASS · Webpack · TypeScript · Version Control · Jira · PrimeNG · Angular · Responsive Web Design
